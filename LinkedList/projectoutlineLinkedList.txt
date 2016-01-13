@@ -1,0 +1,3 @@
+This program constructs a generic linked list and showcases all of the basic operations that can be executed on a linked list. In my
+instantiantion of the linked list, I created a list of integers for simplicity purposes. However, due to the fact that this program is
+coded using generic programming, any type of data type can be used.
