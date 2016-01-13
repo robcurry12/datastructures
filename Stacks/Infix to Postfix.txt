@@ -1,0 +1,218 @@
+for(int i = 0; i < str.length(); i++)
+		{
+			char ch = str.charAt(i);
+			if (ch == '<' || ch == '>' || ch == '=' || ch == '!' || ch == '&' || ch == '|' || ch == '-')
+			{
+				//Checking Order Of Operations
+				if (s1.size() <= 0)
+					s1.push(ch);
+				else
+				{
+					Character Top = (Character) s1.peek();
+					if(Top == '<' || Top == '>')
+						priority = 4;
+					else if(Top == '=' || Top == '!')
+						priority = 3;
+					else if(Top == '&')
+						priority = 2;
+					else if(Top == '|')
+						priority = 1;
+					else
+						priority = 0;
+					
+					if(priority == 4)
+					{
+						if(ch == '=' || ch == '!' || ch == '&' || ch == '|' || ch == '-')
+						{
+							result += s1.pop();
+							i--;
+						}
+						else
+						{
+							result+= s1.pop();
+						}
+					}
+					else if(priority == 3)
+					{
+						if(ch == '&' || ch == '|' || ch == '-')
+						{
+							result += s1.pop();
+							i++;
+						}
+						else
+						{
+							result+= s1.pop();
+							i++;
+						}
+					}
+					else if(priority == 2)
+					{
+						if(ch == '|' || ch == '-')
+						{
+							result += s1.pop();
+							i++;
+						}
+						else
+						{
+							result+= s1.pop();
+							i++;
+						}
+					}
+					else if(priority == 1)
+					{
+						if(ch == '-')
+						{
+							result += s1.pop();
+							i++;
+						}
+						else
+						{
+							result+= s1.pop();
+							i++;
+						}
+					}
+					else
+					{
+							result += s1.pop();
+							s1.push(ch);
+					}
+				}
+			}
+			else if(ch == '(' || ch == ')')
+			{
+			}
+			else
+			{
+				result += ch;
+			}
+		}
+		for(int j = 0; j < s1.size(); j++)
+			result += s1.pop();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+evalutae
+
+
+
+/*int i=0, operand1 = 0, operand2 = 0;
+		int numInts = 0;
+		while(i < relate.length())
+		{
+			if(relate.charAt(i) == '(')
+			{
+				i++;
+			}
+			else if(Character.isDigit(relate.charAt(i)) && numInts == 0)
+			{
+				operand1 = relate.charAt(i);
+				numInts++;
+				i++;
+			}
+			else if(Character.isDigit(relate.charAt(i)) && numInts == 1)
+			{
+				operand2 = relate.charAt(i);
+				numInts++;
+				i++;
+			}
+			else if(relate.charAt(i) == '>')
+			{
+				truth = (operand1 > operand2);
+				truthVal.push(truth);
+				i++;
+			}
+			else if(relate.charAt(i) == '<')
+			{
+				truth = (operand1 < operand2);
+				truthVal.push(truth);
+				i++;
+			}
+			else if(relate.charAt(i) == '=')
+			{
+				truth = (operand1 == operand2);
+				truthVal.push(truth);
+				i++;
+			}
+			else if(relate.charAt(i) == '!')
+			{
+				truth = (operand1 != operand2);
+				truthVal.push(truth);
+				i++;
+			}
+			else
+			{
+				i++;
+			}
+		}
+		*/
+
+
+
+
+
+
+/*for(int i = 0; i < relate.length(); i++)
+		{
+			char ch = relate.charAt(i);
+			
+			if(ch == '(')
+			{
+				characters.push(ch);
+			}
+			else if (Character.isDigit(ch))
+			{
+				output += ch;
+			}
+			else if ((ch == '-') || (ch == '|') || (ch == '&') || (ch == '=') || (ch == '!')) //Operators with two characters
+			{	
+				while((characters.isEmpty() == false) && (characters.peek() != '('))
+				{
+					if(((ch == '=') || (ch == '!')) && ((characters.peek() == '<') || (characters.peek() == '>')))
+					{
+						while(((characters.isEmpty() == false)) || ((characters.peek() != '(') || (characters.peek() == '<') || (characters.peek() == '>')))
+							output += characters.pop();
+					}
+				}
+				characters.push(ch);
+				i++;		
+			}
+			else if((ch == '>') || (ch == '<'))
+			{
+				while((characters.isEmpty() == false) && (characters.peek() != '('))
+				{
+					output += characters.pop();
+				}
+				characters.push(ch);
+			}
+			else
+			{
+				while((characters.isEmpty() == false) && (characters.peek() != '('))
+				{
+					output += characters.pop();
+				}
+			}
+		}
+		System.out.println(output);
+		int i=0;
+		while(i<output.length())
+		{
+			int operand1 = (output.charAt(i));
+			int operand2 = (output.charAt(i+1));
+			char operator = (output.charAt(i+2));
+		}*/
+
+
+
