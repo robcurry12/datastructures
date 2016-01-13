@@ -1,0 +1,3 @@
+This project is meant to read in boolean expresessions containing relational and logical operators from a text file. From there, the 
+program will utilize a stack to help evaluate these boolean expressions by pushing and popping the operators on and off the stack. The
+program is capable of handling the order of precedence of the various operators.
